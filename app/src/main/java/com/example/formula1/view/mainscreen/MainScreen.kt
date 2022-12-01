@@ -6,7 +6,7 @@ import com.example.formula1.databinding.ActivityMainScreenBinding
 import com.example.formula1.utils.base.BaseActivity
 import com.example.formula1.view.mainscreen.fragments.CircuitsFragment
 import com.example.formula1.view.mainscreen.fragments.RacingFragment
-import com.example.formula1.view.mainscreen.fragments.StandingFragment
+import com.example.formula1.view.mainscreen.fragments.standing.StandingFragment
 
 class MainScreen : BaseActivity<ActivityMainScreenBinding>(ActivityMainScreenBinding::inflate) {
 
