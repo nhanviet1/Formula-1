@@ -19,6 +19,7 @@ out/
 # release/
 
 # Gradle files
+gradle.properties/
 .idea/
 .gradle/
 build/
