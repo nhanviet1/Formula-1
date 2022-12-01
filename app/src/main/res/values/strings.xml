@@ -5,4 +5,11 @@
     <string name="text_racing">Racing</string>
     <string name="text_standings">Standings</string>
     <string name="text_circuits">Circuits</string>
+    <string name="text_number_1">1</string>
+    <string name="text_driver_name">Max Verstappen</string>
+    <string name="text_score">100</string>
+    <string name="text_search">Search</string>
+    <string name="text_2022">2022</string>
+    <string name="text_enter_the_year">Enter the Year</string>
+    <string name="text_max">MAX</string>
 </resources>

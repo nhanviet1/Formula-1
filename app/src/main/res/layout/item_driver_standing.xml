@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_120"
+    app:cardElevation="@dimen/dp_20"
+    android:layout_marginHorizontal="@dimen/dp_10"
+    android:layout_marginTop="@dimen/dp_8"
+    app:cardCornerRadius="@dimen/dp_8">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/driver_standing_bg_color">
+
+        <TextView
+            android:id="@+id/text_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/formula1_bold"
+            android:text="@string/text_number_1"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/sp_28"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/divider"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="@dimen/dp_2"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_60"
+            android:background="@color/color_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_driver_name"
+            android:layout_width="@dimen/dp_180"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_6"
+            android:fontFamily="@font/formula1_bold"
+            android:text="@string/text_driver_name"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintBottom_toTopOf="@id/text_team_name"
+            app:layout_constraintLeft_toRightOf="@id/divider"
+            app:layout_constraintTop_toTopOf="@id/divider" />
+
+        <TextView
+            android:id="@+id/text_team_name"
+            android:layout_width="@dimen/dp_180"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/formula1_bold"
+            android:text="@string/text_driver_name"
+            android:textColor="@color/color_white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintLeft_toLeftOf="@id/text_driver_name"
+            app:layout_constraintBottom_toBottomOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/text_driver_name"/>
+        
+        <ImageView
+            android:id="@+id/img_driver"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/img_driver_fer"
+            android:layout_marginEnd="@dimen/dp_24"/>
+    
+        <TextView
+            android:id="@+id/text_score"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_20"
+            android:text="@string/text_score"
+            android:gravity="center"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/sp_10"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:fontFamily="@font/formula1_regular"
+            android:background="@drawable/bg_score_border"
+            app:layout_constraintLeft_toLeftOf="@id/img_driver"
+            app:layout_constraintRight_toRightOf="@id/img_driver"
+            app:layout_constraintBottom_toBottomOf="@id/img_driver"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

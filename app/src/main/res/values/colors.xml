@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="color_purple_200">#FFBB86FC</color>
+    <color name="color_purple_500">#FF6200EE</color>
+    <color name="color_purple_700">#FF3700B3</color>
+    <color name="color_teal_200">#FF03DAC5</color>
+    <color name="color_teal_700">#FF018786</color>
+    <color name="color_black">#FF000000</color>
+    <color name="color_white">#FFFFFFFF</color>
 
     <color name="color_black_trans">#E6000000</color>
     <color name="color_white_trans">#8AE7DAE1</color>
-    <color name="color_shuttle_grey">#5C5E61</color>
-    <color name="color_nevada">#6A6D71</color>
+    <color name="color_grey">#6F6F6F</color>
+    <color name="driver_standing_bg_color">#38383E</color>
+    <color name="color_blur">#92353539</color>
     <color name="login_background_color">#54CCCCCC</color>
     <color name="dialog_background_color">#7AFFFDFD</color>
     <color name="home_background_color">#14E66591</color>
@@ -19,5 +20,6 @@
     <color name="color_pink_star">#DC226C</color>
     <color name="color_attractive">#052AE3</color>
     <color name="color_pink_tabLayout">#77E87CA7</color>
-    <color name="color_red">#E10600</color>
+    <color name="color_red">#D50000</color>
+    <color name="color_bg_team_score">#EEEEEE</color>
 </resources>
