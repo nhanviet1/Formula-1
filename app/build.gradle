@@ -33,6 +33,11 @@ android {
         buildConfigField "String", "MY_API_KEY", "\"${MY_API_KEY}\""
         buildConfigField "String", "X_API_TAG", "\"${X_API_TAG}\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {

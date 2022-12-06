@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/horizontal_line"
+            android:id="@+id/vertical_line"
             android:layout_width="@dimen/dp_3"
             android:layout_height="@dimen/dp_100"
             android:layout_marginStart="@dimen/dp_10"
@@ -46,8 +46,8 @@
             android:textSize="@dimen/sp_20"
             app:layout_constraintBottom_toTopOf="@id/text_driver_number"
             app:layout_constraintEnd_toStartOf="@id/img_driver_bg"
-            app:layout_constraintStart_toEndOf="@id/horizontal_line"
-            app:layout_constraintTop_toTopOf="@id/horizontal_line"
+            app:layout_constraintStart_toEndOf="@id/vertical_line"
+            app:layout_constraintTop_toTopOf="@id/vertical_line"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
@@ -58,7 +58,7 @@
             tools:text="@string/text_number_1"
             android:textColor="@color/color_white"
             android:textSize="@dimen/sp_40"
-            app:layout_constraintBottom_toBottomOf="@id/horizontal_line"
+            app:layout_constraintBottom_toBottomOf="@id/vertical_line"
             app:layout_constraintEnd_toEndOf="@id/text_name"
             app:layout_constraintStart_toStartOf="@+id/text_name"
             app:layout_constraintTop_toBottomOf="@+id/text_name" />

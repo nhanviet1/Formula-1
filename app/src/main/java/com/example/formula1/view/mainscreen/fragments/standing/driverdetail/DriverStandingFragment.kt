@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import androidx.recyclerview.widget.RecyclerView
+import com.example.formula1.data.model.TeamUnique
 import com.example.formula1.data.model.driverstanding.Response
 import com.example.formula1.databinding.FragmentDriverStandingBinding
 import com.example.formula1.utils.showSearchDialog
@@ -15,7 +16,8 @@ import com.example.formula1.utils.TEXT_ERROR
 import com.example.formula1.utils.gone
 import com.example.formula1.utils.visible
 import com.example.formula1.utils.shortToast
-import com.example.formula1.utils.DRIVER_ID
+import com.example.formula1.utils.KEY_DRIVER_ID
+import com.example.formula1.utils.KEY_TEAM_ID
 import com.example.formula1.utils.base.BaseFragment
 import com.example.formula1.view.adapter.DriverAdapter
 import com.example.formula1.viewmodel.StandingViewModel
@@ -29,6 +31,8 @@ class DriverStandingFragment :
     private val driverAdapter = DriverAdapter(::onItemClick)
     private var dialog: Dialog? = null
     private val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+    private val listTeamUnique = mutableListOf<TeamUnique>()
+    private var carURL: Int? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,6 +41,8 @@ class DriverStandingFragment :
     }
 
     override fun setup() {
+        listTeamUnique.clear()
+        listTeamUnique.addAll(TeamUnique.getTeamUnique())
         dialog = Dialog(requireActivity())
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         binding.rvDrivers.adapter = driverAdapter
@@ -74,7 +80,6 @@ class DriverStandingFragment :
 
         viewModel.driverList.observe(viewLifecycleOwner) {
             driverAdapter.submitList(it.response)
-
             if (it.response.isNullOrEmpty()) {
                 binding.textSelectYear.gone()
             } else {
@@ -84,16 +89,20 @@ class DriverStandingFragment :
     }
 
     private fun onItemClick(item: Response) {
-        val context = context
-        if (context != null) {
-            val intent = Intent(context, DriverStandingDetail::class.java)
-            val driverID = item.driver?.id
-            if (driverID != null) {
-                intent.putExtra(DRIVER_ID, driverID.toString())
-                startActivity(intent)
-            } else {
-                context.shortToast(TEXT_ERROR)
-            }
+        item.driver?.let { viewModel.insertDriverLocal(it) }
+        val intent = Intent(context, DriverStandingDetail::class.java)
+        val driverID = item.driver?.id
+        listTeamUnique.filter { a ->
+            a.id == item.team?.id
+        }.forEach { a ->
+            carURL = a.carImage
+        }
+        if (driverID != null && carURL != null) {
+            intent.putExtra(KEY_DRIVER_ID, driverID.toString())
+            intent.putExtra(KEY_TEAM_ID, carURL)
+            startActivity(intent)
+        } else {
+            context?.shortToast(TEXT_ERROR)
         }
     }
 }
