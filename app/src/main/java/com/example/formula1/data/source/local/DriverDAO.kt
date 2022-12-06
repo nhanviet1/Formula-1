@@ -14,5 +14,4 @@ interface DriverDAO {
 
     @Query("SELECT * FROM ${DriverHistoryDatabase.DRIVER_TABLE}")
     suspend fun getHistoryDriver(): List<Driver>
-
 }

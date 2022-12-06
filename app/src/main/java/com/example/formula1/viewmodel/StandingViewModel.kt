@@ -8,7 +8,6 @@ import com.example.formula1.data.model.TeamStandingList
 import com.example.formula1.data.model.driverstanding.Driver
 import com.example.formula1.data.repository.SearchRepository
 import com.example.formula1.utils.base.BaseViewModel
-import kotlinx.coroutines.Dispatchers
 
 class StandingViewModel(private val repository: SearchRepository) : BaseViewModel() {
 
@@ -32,7 +31,7 @@ class StandingViewModel(private val repository: SearchRepository) : BaseViewMode
 
     fun searchDriver(id: Int) {
         launchAsync(
-            request = { repository.getSearchResult(id, Dispatchers.IO) },
+            request = { repository.getSearchResult(id) },
             onSuccess = {
                 _searchResult.value = it
             },
@@ -43,7 +42,7 @@ class StandingViewModel(private val repository: SearchRepository) : BaseViewMode
 
     fun getDriverStanding(year: String) {
         launchAsync(
-            request = { repository.getDriverStandingResult(year, Dispatchers.IO) },
+            request = { repository.getDriverStandingResult(year) },
             onSuccess = {
                 _driverList.value = it
             },
@@ -54,7 +53,7 @@ class StandingViewModel(private val repository: SearchRepository) : BaseViewMode
 
     fun getTeamStanding(year: String) {
         launchAsync(
-            request = { repository.getTeamStandingResult(year, Dispatchers.IO) },
+            request = { repository.getTeamStandingResult(year) },
             onSuccess = {
                 _teamList.value = it
             },
@@ -65,7 +64,7 @@ class StandingViewModel(private val repository: SearchRepository) : BaseViewMode
 
     fun getDriverLocal() {
         launchAsync(
-            request = { repository.getDriver(Dispatchers.IO) },
+            request = { repository.getDriver() },
             onSuccess = {
                 _driverLocalList.value = it
             },
@@ -77,7 +76,7 @@ class StandingViewModel(private val repository: SearchRepository) : BaseViewMode
 
     fun insertDriverLocal(driver: Driver) {
         launchAsync(
-            request = { repository.insertDriver(driver, Dispatchers.IO) },
+            request = { repository.insertDriver(driver) },
             onSuccess = { _isAddedToLocal.value = true },
             onError = {
                 it.message.toString()
