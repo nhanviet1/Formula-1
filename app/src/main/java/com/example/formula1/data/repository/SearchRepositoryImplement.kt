@@ -3,12 +3,16 @@ package com.example.formula1.data.repository
 import com.example.formula1.data.model.DriverSearchResponse
 import com.example.formula1.data.model.DriverStandingList
 import com.example.formula1.data.model.TeamStandingList
+import com.example.formula1.data.model.driverstanding.Driver
 import com.example.formula1.data.source.SearchDataSource
 import com.example.formula1.utils.DataResult
 import com.example.formula1.utils.base.BaseRepository
 import kotlinx.coroutines.CoroutineDispatcher
 
-class SearchRepositoryImplement(private val remote: SearchDataSource.Remote) :
+class SearchRepositoryImplement(
+    private val remote: SearchDataSource.Remote,
+    private val local: SearchDataSource.Local
+) :
     BaseRepository(),
     SearchRepository {
 
@@ -31,5 +35,18 @@ class SearchRepositoryImplement(private val remote: SearchDataSource.Remote) :
         dispatcher: CoroutineDispatcher
     ): DataResult<TeamStandingList> {
         return getResult(dispatcher) { remote.getTeamStanding(year) }
+    }
+
+    override suspend fun getDriver(dispatcher: CoroutineDispatcher): DataResult<List<Driver>> {
+        return getResult(dispatcher) { local.getDriverHistory() }
+    }
+
+    override suspend fun insertDriver(
+        driver: Driver,
+        dispatcher: CoroutineDispatcher
+    ): DataResult<Unit> {
+        return getResult(dispatcher) {
+            local.insertDriver(driver)
+        }
     }
 }

@@ -14,7 +14,7 @@ data class Response(
 
         val diffUtil = object : DiffUtil.ItemCallback<Response>() {
             override fun areItemsTheSame(oldItem: Response, newItem: Response) =
-                oldItem == newItem
+                oldItem.position == newItem.position
 
             override fun areContentsTheSame(oldItem: Response, newItem: Response) =
                 oldItem == newItem

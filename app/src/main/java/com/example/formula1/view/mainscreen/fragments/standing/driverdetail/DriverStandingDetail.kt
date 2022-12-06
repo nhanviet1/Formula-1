@@ -1,12 +1,14 @@
 package com.example.formula1.view.mainscreen.fragments.standing.driverdetail
 
 import android.os.Bundle
+import com.example.formula1.data.model.TeamUnique
 import com.example.formula1.databinding.ActivityDriverStandingDetailBinding
 import com.example.formula1.utils.PAGE_DETAIL
 import com.example.formula1.utils.PAGE_HISTORY
 import com.example.formula1.utils.NONE
 import com.example.formula1.utils.PAGE_ONE
-import com.example.formula1.utils.DRIVER_ID
+import com.example.formula1.utils.KEY_DRIVER_ID
+import com.example.formula1.utils.KEY_TEAM_ID
 import com.example.formula1.utils.loadCoverImage
 import com.example.formula1.utils.base.BaseActivity
 import com.example.formula1.view.adapter.DetailViewPagerAdapter
@@ -19,6 +21,7 @@ class DriverStandingDetail :
 
     private val driverStandingFragment = DetailFragment()
     private val teamStandingFragment = HistoryFragment()
+    private val listTeamUnique = mutableListOf<TeamUnique>()
     private val fragmentList = listOf(driverStandingFragment, teamStandingFragment)
     private val viewPagerAdapter by lazy {
         DetailViewPagerAdapter(
@@ -36,6 +39,8 @@ class DriverStandingDetail :
     }
 
     private fun setup() {
+        listTeamUnique.clear()
+        listTeamUnique.addAll(TeamUnique.getTeamUnique())
         binding.imgBack.setOnClickListener {
             onBackPressed()
         }
@@ -51,9 +56,15 @@ class DriverStandingDetail :
         }.attach()
     }
 
-    private fun observeData(){
+    private fun observeData() {
         viewModel.searchResult.observe(this) {
             val driverInformation = it.response?.get(NONE)
+            val teamID = driverInformation?.teams?.get(NONE)?.team?.id
+            listTeamUnique.filter { item ->
+                item.id == teamID
+            }.forEach { item ->
+                binding.verticalLine.setBackgroundResource(item.color)
+            }
             binding.textName.text = driverInformation?.name
             binding.textDriverNumber.text = driverInformation?.number.toString()
             val url = driverInformation?.image.toString()
@@ -62,9 +73,13 @@ class DriverStandingDetail :
     }
 
     private fun getData() {
-        val id = intent.getStringExtra(DRIVER_ID)
-        if (id != null) {
-            viewModel.searchDriver(id.toInt())
+        val driverID = intent.getStringExtra(KEY_DRIVER_ID)
+        val url = intent.getIntExtra(KEY_TEAM_ID, NONE)
+        if (url != NONE) {
+            viewModel.setCarImg(url)
+        }
+        if (driverID != null) {
+            viewModel.searchDriver(driverID.toInt())
         }
     }
 }
