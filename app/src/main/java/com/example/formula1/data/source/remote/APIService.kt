@@ -2,6 +2,7 @@ package com.example.formula1.data.source.remote
 
 import com.example.formula1.data.model.DriverSearchResponse
 import com.example.formula1.data.model.DriverStandingList
+import com.example.formula1.data.model.TeamSearchResponse
 import com.example.formula1.data.model.TeamStandingList
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -11,6 +12,7 @@ interface APIService {
         const val API_DRIVER_SEARCH = "drivers"
         const val API_DRIVER_STANDING = "rankings/drivers"
         const val API_TEAM_STANDING = "rankings/teams"
+        const val API_TEAM_SEARCH = "teams"
     }
 
     @GET(API_DRIVER_SEARCH)
@@ -27,4 +29,15 @@ interface APIService {
     suspend fun getTeamStanding(
         @Query("season") year: String
     ): TeamStandingList
+
+    @GET(API_TEAM_SEARCH)
+    suspend fun getSearchTeam(
+        @Query("id") id: Int
+    ): TeamSearchResponse
+
+    @GET(API_DRIVER_STANDING)
+    suspend fun getSearchDriverByTeam(
+        @Query("team") teamID: Int,
+        @Query("season") year: String
+    ): DriverStandingList
 }

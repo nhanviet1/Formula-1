@@ -5,4 +5,5 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 
 val ViewModelModule = module {
     viewModel { StandingViewModel(get()) }
+    viewModel { TeamDetailViewModel(get()) }
 }

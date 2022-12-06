@@ -43,10 +43,13 @@ class DriverStandingFragment :
     override fun setup() {
         listTeamUnique.clear()
         listTeamUnique.addAll(TeamUnique.getTeamUnique())
-        dialog = Dialog(requireActivity())
+        context.apply {
+            if (this != null) {
+                dialog = Dialog(this)
+            }
+        }
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         binding.rvDrivers.adapter = driverAdapter
-
         binding.btnSearch.setOnClickListener {
             dialog?.showSearchDialog(DIALOG_TITLE_ENTER_YEAR) { key ->
                 if (key == STRING_EMPTY) {
@@ -56,7 +59,6 @@ class DriverStandingFragment :
                 }
             }
         }
-
         binding.rvDrivers.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -89,7 +91,10 @@ class DriverStandingFragment :
     }
 
     private fun onItemClick(item: Response) {
-        item.driver?.let { viewModel.insertDriverLocal(it) }
+        item.driver?.let {
+            val historyItem = it.copy(timeStamp = getCurrentTime())
+            viewModel.insertDriverLocal(historyItem)
+        }
         val intent = Intent(context, DriverStandingDetail::class.java)
         val driverID = item.driver?.id
         listTeamUnique.filter { a ->
@@ -105,4 +110,6 @@ class DriverStandingFragment :
             context?.shortToast(TEXT_ERROR)
         }
     }
+
+    private fun getCurrentTime() = System.currentTimeMillis()
 }

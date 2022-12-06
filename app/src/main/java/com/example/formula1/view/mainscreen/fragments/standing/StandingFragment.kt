@@ -1,5 +1,6 @@
 package com.example.formula1.view.mainscreen.fragments.standing
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import com.example.formula1.utils.PAGE_CONSTRUCTORS
 import com.example.formula1.utils.PAGE_DRIVERS
 import com.example.formula1.utils.PAGE_ONE
 import com.example.formula1.view.adapter.ViewPagerAdapter
+import com.example.formula1.view.mainscreen.HistoryActivity
 import com.example.formula1.view.mainscreen.fragments.standing.driverdetail.DriverStandingFragment
 import com.example.formula1.view.mainscreen.fragments.standing.teamdetail.TeamStandingFragment
 import com.google.android.material.tabs.TabLayoutMediator
@@ -47,5 +49,10 @@ class StandingFragment : Fragment() {
                 PAGE_ONE -> tab.text = PAGE_CONSTRUCTORS
             }
         }.attach()
+
+        binding.imgHistory.setOnClickListener {
+            val intent = Intent(context, HistoryActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

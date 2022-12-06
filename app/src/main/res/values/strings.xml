@@ -20,4 +20,14 @@
     <string name="text_highest_position">Highest Position</string>
     <string name="text_career_points">Career Points</string>
     <string name="text_current_team">Current Team</string>
+    <string name="text_base">Base: </string>
+    <string name="text_first_entry">First Entry: </string>
+    <string name="text_world_championship">World Championship: </string>
+    <string name="text_director">Director: </string>
+    <string name="text_chasis">Chasis: </string>
+    <string name="text_engine">Engine: </string>
+    <string name="text_tyres">Tyres: </string>
+    <string name="text_pole_positions">Pole Positions</string>
+    <string name="text_highest_finish">Highest Finish</string>
+    <string name="text_drivers">Drivers</string>
 </resources>

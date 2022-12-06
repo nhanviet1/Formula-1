@@ -2,19 +2,34 @@ package com.example.formula1.data.repository
 
 import com.example.formula1.data.model.DriverSearchResponse
 import com.example.formula1.data.model.DriverStandingList
+import com.example.formula1.data.model.TeamSearchResponse
 import com.example.formula1.data.model.TeamStandingList
 import com.example.formula1.data.model.driverstanding.Driver
 import com.example.formula1.utils.DataResult
-import kotlinx.coroutines.CoroutineDispatcher
 
 interface SearchRepository {
-    suspend fun getSearchResult(id: Int, dispatcher: CoroutineDispatcher): DataResult<DriverSearchResponse>
+    suspend fun getSearchResult(
+        id: Int
+    ): DataResult<DriverSearchResponse>
 
-    suspend fun getDriverStandingResult(year: String, dispatcher: CoroutineDispatcher): DataResult<DriverStandingList>
+    suspend fun getDriverStandingResult(
+        year: String
+    ): DataResult<DriverStandingList>
 
-    suspend fun getTeamStandingResult(year: String, dispatcher: CoroutineDispatcher): DataResult<TeamStandingList>
+    suspend fun getTeamStandingResult(
+        year: String
+    ): DataResult<TeamStandingList>
 
-    suspend fun getDriver(dispatcher: CoroutineDispatcher): DataResult<List<Driver>>
+    suspend fun getDriver(): DataResult<List<Driver>>
 
-    suspend fun insertDriver(driver: Driver, dispatcher: CoroutineDispatcher): DataResult<Unit>
+    suspend fun insertDriver(driver: Driver): DataResult<Unit>
+
+    suspend fun getTeamDetail(
+        id: Int
+    ): DataResult<TeamSearchResponse>
+
+    suspend fun getSearchDriverByTeam(
+        teamID: Int,
+        season: String
+    ): DataResult<DriverStandingList>
 }
