@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.formula1.R
 import com.example.formula1.databinding.ActivityMainScreenBinding
 import com.example.formula1.utils.base.BaseActivity
-import com.example.formula1.view.mainscreen.fragments.CircuitsFragment
+import com.example.formula1.view.mainscreen.fragments.circuits.CircuitsFragment
 import com.example.formula1.view.mainscreen.fragments.RacingFragment
 import com.example.formula1.view.mainscreen.fragments.standing.StandingFragment
 

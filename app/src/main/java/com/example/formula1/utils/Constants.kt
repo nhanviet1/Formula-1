@@ -20,6 +20,7 @@ const val KEY_DRIVER_ID = "Driver ID"
 const val KEY_TEAM_ID = "Team ID"
 const val KEY_CAR_URL = "Car ID"
 const val KEY_SEASON = "Selected Season"
+const val KEY_CIRCUIT_ID = "Circuit_ID"
 const val TEXT_ERROR = "Something is wrong, please try again!"
 const val RB_ID = 1
 const val MER_ID = 5

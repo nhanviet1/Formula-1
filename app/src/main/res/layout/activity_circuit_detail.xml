@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.mainscreen.fragments.circuits.CircuitDetailActivity">
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:src="@drawable/ic_arrow_back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_circuit"
+        android:layout_width="@dimen/dp_220"
+        android:layout_height="@dimen/dp_140"
+        android:layout_marginTop="@dimen/dp_8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_circuit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_black"
+        android:textColor="@color/color_white"
+        android:paddingVertical="@dimen/dp_4"
+        android:gravity="center"
+        tools:text="@string/text_driver_name"
+        android:fontFamily="@font/formula1_bold"
+        android:textSize="@dimen/sp_22"
+        app:layout_constraintTop_toBottomOf="@id/img_circuit" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_6"
+        android:layout_marginTop="@dimen/dp_8"
+        app:cardCornerRadius="@dimen/dp_4"
+        app:cardElevation="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@id/text_circuit_name">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_driver_card_view_detail"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:paddingVertical="@dimen/dp_8">
+
+            <TextView
+                android:id="@+id/text_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_location"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_first_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_first_time_open"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="@+id/text_location"
+                app:layout_constraintTop_toBottomOf="@+id/text_location" />
+
+            <TextView
+                android:id="@+id/text_first_grand_prix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_first_grand_prix"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="@+id/text_first_open"
+                app:layout_constraintTop_toBottomOf="@+id/text_first_open" />
+
+            <TextView
+                android:id="@+id/text_total_laps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_total_laps"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="@+id/text_first_grand_prix"
+                app:layout_constraintTop_toBottomOf="@+id/text_first_grand_prix" />
+
+            <TextView
+                android:id="@+id/text_race_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_race_distance"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="@+id/text_total_laps"
+                app:layout_constraintTop_toBottomOf="@+id/text_total_laps" />
+
+            <TextView
+                android:id="@+id/text_capacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_capacity"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="@+id/text_race_distance"
+                app:layout_constraintTop_toBottomOf="@+id/text_race_distance" />
+
+            <TextView
+                android:id="@+id/text_location_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintBottom_toBottomOf="@id/text_location"
+                app:layout_constraintLeft_toRightOf="@+id/text_location"
+                app:layout_constraintTop_toTopOf="@+id/text_location"
+                tools:text="@string/text_driver_name" />
+
+            <TextView
+                android:id="@+id/text_first_open_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintBottom_toBottomOf="@id/text_first_open"
+                app:layout_constraintLeft_toRightOf="@+id/text_first_open"
+                app:layout_constraintTop_toTopOf="@+id/text_first_open"
+                tools:text="@string/text_driver_name" />
+
+            <TextView
+                android:id="@+id/text_first_entry_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toRightOf="@+id/text_first_grand_prix"
+                app:layout_constraintTop_toTopOf="@+id/text_first_grand_prix"
+                tools:text="@string/text_driver_name" />
+
+            <TextView
+                android:id="@+id/text_laps_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toRightOf="@+id/text_total_laps"
+                app:layout_constraintTop_toTopOf="@+id/text_total_laps"
+                tools:text="@string/text_driver_name" />
+
+            <TextView
+                android:id="@+id/text_race_distance_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toRightOf="@+id/text_race_distance"
+                app:layout_constraintTop_toTopOf="@+id/text_race_distance"
+                tools:text="@string/text_driver_name" />
+
+            <TextView
+                android:id="@+id/text_capacity_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toRightOf="@+id/text_capacity"
+                app:layout_constraintTop_toTopOf="@+id/text_capacity"
+                tools:text="@string/text_driver_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_6"
+        android:layout_marginTop="@dimen/dp_8"
+        app:cardCornerRadius="@dimen/dp_4"
+        app:cardElevation="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@id/card_view_detail">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_driver_card_view_detail"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:paddingVertical="@dimen/dp_8">
+
+            <TextView
+                android:id="@+id/text_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/formula1_bold"
+                android:text="@string/text_lap_record"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/text_archived_by"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_record" />
+
+            <TextView
+                android:id="@+id/text_time_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_time_record"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="@+id/text_driver"
+                app:layout_constraintTop_toBottomOf="@+id/text_driver" />
+
+            <TextView
+                android:id="@+id/text_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_year"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toLeftOf="@+id/text_time_record"
+                app:layout_constraintTop_toBottomOf="@+id/text_time_record" />
+
+            <TextView
+                android:id="@+id/text_driver_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintBottom_toBottomOf="@id/text_driver"
+                app:layout_constraintLeft_toRightOf="@+id/text_driver"
+                app:layout_constraintTop_toTopOf="@+id/text_driver"
+                tools:text="@string/text_driver_name" />
+
+            <TextView
+                android:id="@+id/text_time_record_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintBottom_toBottomOf="@id/text_time_record"
+                app:layout_constraintLeft_toRightOf="@+id/text_time_record"
+                app:layout_constraintTop_toTopOf="@+id/text_time_record"
+                tools:text="@string/text_driver_name" />
+
+            <TextView
+                android:id="@+id/text_year_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintLeft_toRightOf="@+id/text_year"
+                app:layout_constraintTop_toTopOf="@+id/text_year"
+                tools:text="@string/text_driver_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
