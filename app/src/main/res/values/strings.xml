@@ -30,4 +30,14 @@
     <string name="text_pole_positions">Pole Positions</string>
     <string name="text_highest_finish">Highest Finish</string>
     <string name="text_drivers">Drivers</string>
+    <string name="text_location">Location: </string>
+    <string name="text_first_time_open">Opened: </string>
+    <string name="text_first_grand_prix">First Grand Prix: </string>
+    <string name="text_total_laps">Laps Per Race: </string>
+    <string name="text_race_distance">Race Distance: </string>
+    <string name="text_capacity">Capacity: </string>
+    <string name="text_lap_record">Lap Record</string>
+    <string name="text_archived_by">Driver: </string>
+    <string name="text_time_record">Time: </string>
+    <string name="text_year">Year: </string>
 </resources>
